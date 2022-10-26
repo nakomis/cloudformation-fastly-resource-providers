@@ -1,0 +1,130 @@
+{
+    "typeName": "Fastly::Tls::Certificate",
+    "description": "Manage a Fastly service",
+    "sourceUrl": "https://developer.fastly.com/reference/api/tls/custom-certs/certificates/",
+    "definitions": {
+        "FastlyAccess": {
+            "description": "Properties needed to access Fastly.",
+            "type": "object",
+            "properties": {
+                "Token": {
+                    "type": "string",
+                    "description": "API token used to access Fastly"
+                }
+            },
+            "required": [
+                "Token"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "typeConfiguration": {
+        "properties": {
+            "FastlyAccess": {
+                "$ref": "#/definitions/FastlyAccess"
+            }
+        },
+        "additionalProperties": false,
+        "required": [
+            "FastlyAccess"
+        ]
+    },
+    "properties": {
+        "CertBlob": {
+            "description": "The PEM-formatted certificate blob.",
+            "type": "string"
+        },
+        "Name": {
+            "description": "A customizable name for your certificate. Defaults to the certificate's Common Name or first Subject Alternative Names (SAN) entry.",
+            "type": "string"
+        },
+        "DomainName": {
+            "description": "The domain name.",
+            "type": "string"
+        },
+        "Type": {
+            "description": "Resource type.",
+            "type": "string"
+        },
+        "CreatedAt": {
+            "description": "Date and time in ISO 8601 format. Read-only.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "DeletedAt": {
+            "description": "Date and time in ISO 8601 format. Read-only.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "Id": {
+            "description": "Alphanumeric string identifying a TLS certificate.",
+            "type": "string"
+        },
+        "IssuedTo": {
+            "description": "Alphanumeric string identifying a TLS certificate.",
+            "type": "string"
+        },
+        "Issuer": {
+            "description": "The certificate authority that issued the certificate.",
+            "type": "string"
+        },
+        "NotAfter": {
+            "description": "Time-stamp (GMT) when the certificate will expire. Must be in the future to be used to terminate TLS traffic.",
+            "type": "string"
+        },
+        "NotBefore": {
+            "description": "Time-stamp (GMT) when the certificate will become valid. Must be in the past to be used to terminate TLS traffic.",
+            "type": "string"
+        },
+        "Replace": {
+            "description": "A recommendation from Fastly indicating the key associated with this certificate is in need of rotation.",
+            "type": "boolean"
+        },
+        "SerialNumber": {
+            "description": "A value assigned by the issuer that is unique to a certificate.",
+            "type": "string"
+        },
+        "SignatureAlgorithm": {
+            "description": "The algorithm used to sign the certificate.",
+            "type": "string"
+        },
+        "UpdatedAt": {
+            "description": "Date and time in ISO 8601 format. Read-only.",
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "CertBlob"
+    ],
+    "primaryIdentifier": [
+        "/properties/Name"
+    ],
+    "readOnlyProperties": [
+        "/properties/CreatedAt",
+        "/properties/DeletedAt",
+        "/properties/UpdatedAt",
+        "/properties/Version"
+    ],
+    "createOnlyProperties": [
+        "/properties/Name"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": []
+        },
+        "read": {
+            "permissions": []
+        },
+        "update": {
+            "permissions": []
+        },
+        "delete": {
+            "permissions": []
+        },
+        "list": {
+            "permissions": []
+        }
+    }
+}
